@@ -1,0 +1,127 @@
+ INFO 2026-11-03 00:03:39.492 348087 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+ INFO 2026-11-03 00:03:39.502 348087 --- [Thread-9] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+ INFO 2026-11-03 00:03:39.505 348087 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+ INFO 2026-11-03 00:03:39.512 348087 --- [Thread-9] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+ INFO 2026-11-03 00:03:39.514 348087 --- [Thread-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+ INFO 2026-11-03 00:03:39.516 348087 --- [Thread-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+ INFO 2026-11-03 00:03:39.626 348087 --- [restartedMain] s.e.u.c.CoreinventoryApplication         : Starting CoreinventoryApplication using Java 21.0.13 with PID 348087 (/mnt/datos/UES/Proyectos/InventarioSoftwareBE/target/classes started by mcruz in /mnt/datos/UES/Proyectos/InventarioSoftwareBE)
+DEBUG 2026-11-03 00:03:39.626 348087 --- [restartedMain] s.e.u.c.CoreinventoryApplication         : Running with Spring Boot v4.1.2, Spring v7.0.10
+ INFO 2026-11-03 00:03:39.627 348087 --- [restartedMain] s.e.u.c.CoreinventoryApplication         : No active profile set, falling back to 1 default profile: "default"
+ INFO 2026-11-03 00:03:39.957 348087 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ INFO 2026-11-03 00:03:39.969 348087 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 1 JPA repository interface.
+ INFO 2026-11-03 00:03:40.135 348087 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+ INFO 2026-11-03 00:03:40.136 348087 --- [restartedMain] o.a.catalina.core.StandardService        : Starting service [Tomcat]
+ INFO 2026-11-03 00:03:40.137 348087 --- [restartedMain] o.a.catalina.core.StandardEngine         : Starting Servlet engine: [Apache Tomcat/11.0.27]
+ INFO 2026-11-03 00:03:40.151 348087 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 519 ms
+ INFO 2026-11-03 00:03:40.208 348087 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+ INFO 2026-11-03 00:03:40.225 348087 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection org.postgresql.jdbc.PgConnection@126765bc
+ INFO 2026-11-03 00:03:40.226 348087 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+ INFO 2026-11-03 00:03:40.228 348087 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+ INFO 2026-11-03 00:03:40.270 348087 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+ INFO 2026-11-03 00:03:40.286 348087 --- [restartedMain] o.hibernate.orm.connections.pooling      : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/coreinventory]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: coreinventory/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+ INFO 2026-11-03 00:03:40.594 348087 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+ INFO 2026-11-03 00:03:40.595 348087 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+DEBUG 2026-11-03 00:03:40.728 348087 --- [restartedMain] s.e.u.c.c.JwtAuthenticationFilter        : Filter 'jwtAuthenticationFilter' configured for use
+ INFO 2026-11-03 00:03:40.763 348087 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+ INFO 2026-11-03 00:03:40.911 348087 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/coreinventory'
+ INFO 2026-11-03 00:03:40.915 348087 --- [restartedMain] s.e.u.c.CoreinventoryApplication         : Started CoreinventoryApplication in 1.321 seconds (process running for 979.828)
+ WARN 2026-11-03 00:03:40.962 348087 --- [restartedMain] o.s.c.events.SpringDocAppInitializer     : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+ WARN 2026-11-03 00:03:40.962 348087 --- [restartedMain] o.s.c.events.SpringDocAppInitializer     : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+ INFO 2026-11-03 00:03:40.963 348087 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+ INFO 2026-11-03 00:03:45.311 348087 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+ INFO 2026-11-03 00:03:45.312 348087 --- [Thread-13] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+ INFO 2026-11-03 00:03:45.314 348087 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+ INFO 2026-11-03 00:03:45.319 348087 --- [Thread-13] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+ INFO 2026-11-03 00:03:45.320 348087 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+ INFO 2026-11-03 00:03:45.321 348087 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+ INFO 2026-11-03 00:03:45.441 348087 --- [restartedMain] s.e.u.c.CoreinventoryApplication         : Starting CoreinventoryApplication using Java 21.0.13 with PID 348087 (/mnt/datos/UES/Proyectos/InventarioSoftwareBE/target/classes started by mcruz in /mnt/datos/UES/Proyectos/InventarioSoftwareBE)
+DEBUG 2026-11-03 00:03:45.441 348087 --- [restartedMain] s.e.u.c.CoreinventoryApplication         : Running with Spring Boot v4.1.2, Spring v7.0.10
+ INFO 2026-11-03 00:03:45.441 348087 --- [restartedMain] s.e.u.c.CoreinventoryApplication         : No active profile set, falling back to 1 default profile: "default"
+ INFO 2026-11-03 00:03:45.636 348087 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ INFO 2026-11-03 00:03:45.646 348087 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 1 JPA repository interface.
+ INFO 2026-11-03 00:03:45.802 348087 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+ INFO 2026-11-03 00:03:45.804 348087 --- [restartedMain] o.a.catalina.core.StandardService        : Starting service [Tomcat]
+ INFO 2026-11-03 00:03:45.804 348087 --- [restartedMain] o.a.catalina.core.StandardEngine         : Starting Servlet engine: [Apache Tomcat/11.0.27]
+ INFO 2026-11-03 00:03:45.818 348087 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 374 ms
+ INFO 2026-11-03 00:03:45.872 348087 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+ INFO 2026-11-03 00:03:45.891 348087 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection org.postgresql.jdbc.PgConnection@733f6021
+ INFO 2026-11-03 00:03:45.891 348087 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+ INFO 2026-11-03 00:03:45.893 348087 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+ INFO 2026-11-03 00:03:45.934 348087 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+ INFO 2026-11-03 00:03:45.944 348087 --- [restartedMain] o.hibernate.orm.connections.pooling      : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/coreinventory]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: coreinventory/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+ INFO 2026-11-03 00:03:46.245 348087 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+ INFO 2026-11-03 00:03:46.246 348087 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+DEBUG 2026-11-03 00:03:46.359 348087 --- [restartedMain] s.e.u.c.c.JwtAuthenticationFilter        : Filter 'jwtAuthenticationFilter' configured for use
+ INFO 2026-11-03 00:03:46.381 348087 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+ INFO 2026-11-03 00:03:46.575 348087 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/coreinventory'
+ INFO 2026-11-03 00:03:46.579 348087 --- [restartedMain] s.e.u.c.CoreinventoryApplication         : Started CoreinventoryApplication in 1.17 seconds (process running for 985.491)
+ WARN 2026-11-03 00:03:46.616 348087 --- [restartedMain] o.s.c.events.SpringDocAppInitializer     : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+ WARN 2026-11-03 00:03:46.617 348087 --- [restartedMain] o.s.c.events.SpringDocAppInitializer     : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+ INFO 2026-11-03 00:03:46.618 348087 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+ INFO 2026-11-03 00:14:38.029 348087 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+ INFO 2026-11-03 00:14:38.030 348087 --- [Thread-17] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+ INFO 2026-11-03 00:14:38.032 348087 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+ INFO 2026-11-03 00:14:38.035 348087 --- [Thread-17] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+ INFO 2026-11-03 00:14:38.036 348087 --- [Thread-17] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+ INFO 2026-11-03 00:14:38.037 348087 --- [Thread-17] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+ INFO 2026-11-03 00:14:38.161 348087 --- [restartedMain] s.e.u.c.CoreinventoryApplication         : Starting CoreinventoryApplication using Java 21.0.13 with PID 348087 (/mnt/datos/UES/Proyectos/InventarioSoftwareBE/target/classes started by mcruz in /mnt/datos/UES/Proyectos/InventarioSoftwareBE)
+DEBUG 2026-11-03 00:14:38.162 348087 --- [restartedMain] s.e.u.c.CoreinventoryApplication         : Running with Spring Boot v4.1.2, Spring v7.0.10
+ INFO 2026-11-03 00:14:38.162 348087 --- [restartedMain] s.e.u.c.CoreinventoryApplication         : No active profile set, falling back to 1 default profile: "default"
+ INFO 2026-11-03 00:14:38.320 348087 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ INFO 2026-11-03 00:14:38.331 348087 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 1 JPA repository interface.
+ INFO 2026-11-03 00:14:38.469 348087 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+ INFO 2026-11-03 00:14:38.470 348087 --- [restartedMain] o.a.catalina.core.StandardService        : Starting service [Tomcat]
+ INFO 2026-11-03 00:14:38.471 348087 --- [restartedMain] o.a.catalina.core.StandardEngine         : Starting Servlet engine: [Apache Tomcat/11.0.27]
+ INFO 2026-11-03 00:14:38.484 348087 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 318 ms
+ INFO 2026-11-03 00:14:38.530 348087 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+ INFO 2026-11-03 00:14:38.545 348087 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection org.postgresql.jdbc.PgConnection@73840931
+ INFO 2026-11-03 00:14:38.546 348087 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+ INFO 2026-11-03 00:14:38.548 348087 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+ INFO 2026-11-03 00:14:38.581 348087 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+ INFO 2026-11-03 00:14:38.592 348087 --- [restartedMain] o.hibernate.orm.connections.pooling      : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/coreinventory]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: coreinventory/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+ INFO 2026-11-03 00:14:38.847 348087 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+ INFO 2026-11-03 00:14:38.848 348087 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+DEBUG 2026-11-03 00:14:38.949 348087 --- [restartedMain] s.e.u.c.c.JwtAuthenticationFilter        : Filter 'jwtAuthenticationFilter' configured for use
+ INFO 2026-11-03 00:14:38.972 348087 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+ INFO 2026-11-03 00:14:39.185 348087 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/coreinventory'
+ INFO 2026-11-03 00:14:39.189 348087 --- [restartedMain] s.e.u.c.CoreinventoryApplication         : Started CoreinventoryApplication in 1.064 seconds (process running for 1638.102)
+ WARN 2026-11-03 00:14:39.229 348087 --- [restartedMain] o.s.c.events.SpringDocAppInitializer     : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+ WARN 2026-11-03 00:14:39.229 348087 --- [restartedMain] o.s.c.events.SpringDocAppInitializer     : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+ INFO 2026-11-03 00:14:39.230 348087 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+ INFO 2026-11-03 00:14:44.567 348087 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/coreinventory]           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+ INFO 2026-11-03 00:14:44.568 348087 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+ INFO 2026-11-03 00:14:44.569 348087 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+ WARN 2026-11-03 00:14:44.580 348087 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [io.jsonwebtoken.security.SignatureException: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.]
