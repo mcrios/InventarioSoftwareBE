@@ -8,24 +8,31 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.time.OffsetDateTime;
-import java.util.List;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "usuario")
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Usuario {
+
+    public Usuario() {
+        this.activo = true;
+        this.intentosFallidos = 0;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_usuario_gen")
@@ -39,6 +46,7 @@ public class Usuario {
     private String email;
 
     @Column(name = "password", nullable = false, length = 255)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     @Column(name = "activo", nullable = false)
@@ -67,7 +75,7 @@ public class Usuario {
         joinColumns = @JoinColumn(name = "usuario_id"),
         inverseJoinColumns = @JoinColumn(name = "rol_id")
     )
-    private List<Rol> roles;
+    private Set<Rol> roles;
 
     @ManyToMany
     @JoinTable(
@@ -75,5 +83,16 @@ public class Usuario {
         joinColumns = @JoinColumn(name = "usuario_id"),
         inverseJoinColumns = @JoinColumn(name = "empresa_id")
     )
-    private List<Empresa> empresas;
+    private Set<Empresa> empresas;
+
+    @PrePersist
+    @PreUpdate
+    void aplicarValoresPorDefecto() {
+        if (activo == null) {
+            activo = true;
+        }
+        if (intentosFallidos == null) {
+            intentosFallidos = 0;
+        }
+    }
 }

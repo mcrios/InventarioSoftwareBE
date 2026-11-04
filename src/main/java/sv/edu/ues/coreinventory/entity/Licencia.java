@@ -8,12 +8,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.time.LocalDate;
 
@@ -21,10 +22,14 @@ import java.time.LocalDate;
 @Table(name = "licencia")
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Licencia {
+
+    public Licencia() {
+        this.cantidadTotal = 1;
+        this.cantidadUsada = 0;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_licencia_gen")
@@ -51,4 +56,15 @@ public class Licencia {
 
     @Column(name = "fecha_vencimiento")
     private LocalDate fechaVencimiento;
+
+    @PrePersist
+    @PreUpdate
+    void aplicarValoresPorDefecto() {
+        if (cantidadTotal == null) {
+            cantidadTotal = 1;
+        }
+        if (cantidadUsada == null) {
+            cantidadUsada = 0;
+        }
+    }
 }

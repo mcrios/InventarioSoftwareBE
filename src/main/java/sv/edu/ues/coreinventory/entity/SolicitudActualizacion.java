@@ -8,12 +8,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.time.OffsetDateTime;
 
@@ -21,10 +22,13 @@ import java.time.OffsetDateTime;
 @Table(name = "solicitud_actualizacion")
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class SolicitudActualizacion {
+
+    public SolicitudActualizacion() {
+        this.estado = "PENDIENTE";
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_solicitud_actualizacion_gen")
@@ -65,4 +69,12 @@ public class SolicitudActualizacion {
 
     @Column(name = "fecha_creacion", insertable = false, updatable = false)
     private OffsetDateTime fechaCreacion;
+
+    @PrePersist
+    @PreUpdate
+    void aplicarValoresPorDefecto() {
+        if (estado == null) {
+            estado = "PENDIENTE";
+        }
+    }
 }

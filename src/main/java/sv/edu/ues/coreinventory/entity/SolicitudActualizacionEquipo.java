@@ -8,13 +8,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
@@ -23,10 +24,13 @@ import lombok.Setter;
 })
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class SolicitudActualizacionEquipo {
+
+    public SolicitudActualizacionEquipo() {
+        this.estadoEjecucion = "PENDIENTE";
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_solicitud_equipo_gen")
@@ -47,4 +51,12 @@ public class SolicitudActualizacionEquipo {
 
     @Column(name = "log_resultado", columnDefinition = "TEXT")
     private String logResultado;
+
+    @PrePersist
+    @PreUpdate
+    void aplicarValoresPorDefecto() {
+        if (estadoEjecucion == null) {
+            estadoEjecucion = "PENDIENTE";
+        }
+    }
 }

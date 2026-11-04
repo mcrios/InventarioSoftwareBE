@@ -2,6 +2,7 @@ package sv.edu.ues.coreinventory.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -51,14 +52,23 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
     }
 
-    // 4. Manejo de excepciones generales / RuntimeException no controladas
+    // 4. Manejo de errores de integridad (duplicados, llaves foráneas, nulos obligatorios)
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<ApiResponse<Object>> handleDataIntegrityViolationException(DataIntegrityViolationException ex) {
+        ApiResponse<Object> response = ApiResponse.error(
+                "No se pudo completar la operación: el registro viola una restricción de integridad (dato duplicado, campo obligatorio o referencia inexistente).",
+                null);
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+    }
+
+    // 5. Manejo de excepciones generales / RuntimeException no controladas
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<ApiResponse<Object>> handleRuntimeException(RuntimeException ex) {
         ApiResponse<Object> response = ApiResponse.error(ex.getMessage(), null);
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
     }
 
-    // 5. Manejo genérico para cualquier otra excepción
+    // 6. Manejo genérico para cualquier otra excepción
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiResponse<Object>> handleGenericException(Exception ex) {
         ApiResponse<Object> response = ApiResponse.error("Ocurrió un error interno en el servidor", null);

@@ -8,13 +8,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.time.OffsetDateTime;
 
@@ -24,10 +25,13 @@ import java.time.OffsetDateTime;
 })
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class EquipoSoftware {
+
+    public EquipoSoftware() {
+        this.estadoOperativo = "ACTIVO";
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_equipo_software_gen")
@@ -55,4 +59,12 @@ public class EquipoSoftware {
 
     @Column(name = "fecha_instalacion", insertable = false, updatable = false)
     private OffsetDateTime fechaInstalacion;
+
+    @PrePersist
+    @PreUpdate
+    void aplicarValoresPorDefecto() {
+        if (estadoOperativo == null) {
+            estadoOperativo = "ACTIVO";
+        }
+    }
 }
