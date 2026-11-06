@@ -3,7 +3,6 @@ package sv.edu.ues.coreinventory.controller;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,7 +26,7 @@ import sv.edu.ues.coreinventory.repository.SolicitudActualizacionRepository;
 public class SolicitudActualizacionController {
 
     private final SolicitudActualizacionRepository solicitudActualizacionRepository;
-
+  
     @GetMapping("/")
     public ResponseEntity<ApiResponse<Page<SolicitudActualizacion>>> getAll(
             @PageableDefault(size = 10, sort = "id") Pageable pageable) {

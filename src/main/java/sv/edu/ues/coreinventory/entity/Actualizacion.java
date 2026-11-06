@@ -46,6 +46,9 @@ public class Actualizacion {
 
     @Column(name = "descripcion", columnDefinition = "TEXT")
     private String descripcion;
+    
+    @Column(name = "estado", length = 10)
+    private String estado;
 
     @Column(name = "fecha_lanzamiento", insertable = false, updatable = false)
     private OffsetDateTime fechaLanzamiento;
