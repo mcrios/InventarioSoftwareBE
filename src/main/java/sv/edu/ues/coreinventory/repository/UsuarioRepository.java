@@ -22,6 +22,10 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     @EntityGraph(attributePaths = {"roles", "roles.accesos", "empresas"})
     Optional<Usuario> findById(Long id);
 
-    @Query("SELECT u FROM Usuario u LEFT JOIN FETCH u.roles r LEFT JOIN FETCH r.accesos WHERE u.email = :email")
+    @Query("SELECT DISTINCT u FROM Usuario u "
+            + "LEFT JOIN FETCH u.roles r "
+            + "LEFT JOIN FETCH r.accesos "
+            + "LEFT JOIN FETCH u.empresas "
+            + "WHERE u.email = :email")
     Optional<Usuario> findByEmailWithRolesAndAccesos(@Param("email") String email);
 }

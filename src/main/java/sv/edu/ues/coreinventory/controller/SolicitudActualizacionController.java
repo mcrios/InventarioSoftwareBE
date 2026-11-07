@@ -19,6 +19,7 @@ import sv.edu.ues.coreinventory.dto.ApiResponse;
 import sv.edu.ues.coreinventory.entity.SolicitudActualizacion;
 import sv.edu.ues.coreinventory.exception.AppException;
 import sv.edu.ues.coreinventory.repository.SolicitudActualizacionRepository;
+import sv.edu.ues.coreinventory.service.SolicitudActualizacionService;
 
 @RestController
 @RequestMapping("/api/solicitudes-actualizacion")
@@ -26,6 +27,7 @@ import sv.edu.ues.coreinventory.repository.SolicitudActualizacionRepository;
 public class SolicitudActualizacionController {
 
     private final SolicitudActualizacionRepository solicitudActualizacionRepository;
+    private final SolicitudActualizacionService solicitudActualizacionService;
   
     @GetMapping("/")
     public ResponseEntity<ApiResponse<Page<SolicitudActualizacion>>> getAll(
@@ -53,12 +55,7 @@ public class SolicitudActualizacionController {
 
     @PutMapping("/{id}")
     public ResponseEntity<ApiResponse<SolicitudActualizacion>> update(@PathVariable Long id, @RequestBody SolicitudActualizacion item) {
-        solicitudActualizacionRepository.findById(id)
-                .orElseThrow(() -> new AppException("Solicitud de actualización no encontrada con id: " + id, HttpStatus.NOT_FOUND));
-
-        item.setId(id);
-        solicitudActualizacionRepository.save(item);
-        SolicitudActualizacion updated = solicitudActualizacionRepository.findById(id).orElse(item);
+        SolicitudActualizacion updated = solicitudActualizacionService.actualizar(id, item);
 
         return ResponseEntity.ok().body(ApiResponse.success("Solicitud de actualización modificada exitosamente", updated));
     }

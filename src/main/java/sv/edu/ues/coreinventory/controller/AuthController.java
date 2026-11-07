@@ -15,6 +15,7 @@ import lombok.RequiredArgsConstructor;
 import sv.edu.ues.coreinventory.dto.ApiResponse;
 import sv.edu.ues.coreinventory.dto.LoginRequest;
 import sv.edu.ues.coreinventory.dto.LoginResponse;
+import sv.edu.ues.coreinventory.dto.RefreshTokenRequest;
 import sv.edu.ues.coreinventory.service.AuthService;
 
 @RestController
@@ -29,6 +30,14 @@ public class AuthController {
         LoginResponse response = authService.login(request);
         
         ApiResponse<LoginResponse> apiResponse = ApiResponse.success("Inicio de sesión exitoso", response);
+        return ResponseEntity.ok(apiResponse);
+    }
+
+    @PostMapping("/refresh")
+    public ResponseEntity<ApiResponse<LoginResponse>> refresh(@Valid @RequestBody RefreshTokenRequest request) {
+        LoginResponse response = authService.refreshToken(request.getRefreshToken());
+
+        ApiResponse<LoginResponse> apiResponse = ApiResponse.success("Token renovado exitosamente", response);
         return ResponseEntity.ok(apiResponse);
     }
 
