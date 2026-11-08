@@ -52,7 +52,7 @@ public class Notificacion {
     @Builder.Default
     private Boolean leida = false;
 
-    @Column(name = "fecha_creacion", insertable = false, updatable = false)
+    @Column(name = "fecha_creacion", updatable = false)
     private OffsetDateTime fechaCreacion;
 
     @PrePersist
@@ -60,6 +60,9 @@ public class Notificacion {
     void aplicarValoresPorDefecto() {
         if (leida == null) {
             leida = false;
+        }
+        if (fechaCreacion == null) {
+            fechaCreacion = OffsetDateTime.now();
         }
     }
 }

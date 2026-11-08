@@ -356,3 +356,43 @@ Caused by: java.lang.IllegalStateException: Cannot load driver class: org.h2.Dri
 2026-11-08T13:54:50.971-06:00  INFO 27111 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-11-08T13:54:51.011-06:00  INFO 27111 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2026-11-08T13:54:51.079-06:00  INFO 27111 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-11-08T15:16:32.259-06:00  INFO 55716 --- [main] s.e.u.c.CoreinventoryApplicationTests    : Starting CoreinventoryApplicationTests using Java 21.0.13 with PID 55716 (started by martinez in /home/martinez/Escritorio/proyecto-desarrollo-software/InventarioSoftwareBE)
+2026-11-08T15:16:32.262-06:00 DEBUG 55716 --- [main] s.e.u.c.CoreinventoryApplicationTests    : Running with Spring Boot v4.1.2, Spring v7.0.10
+2026-11-08T15:16:32.265-06:00  INFO 55716 --- [main] s.e.u.c.CoreinventoryApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2026-11-08T15:16:35.134-06:00  INFO 55716 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-08T15:16:35.273-06:00  INFO 55716 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 122 ms. Found 15 JPA repository interfaces.
+2026-11-08T15:16:36.486-06:00  INFO 55716 --- [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-08T15:16:36.563-06:00  INFO 55716 --- [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.13.Final
+2026-11-08T15:16:37.316-06:00  INFO 55716 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-08T15:16:37.371-06:00  INFO 55716 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-08T15:16:37.733-06:00  INFO 55716 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-11-08T15:16:37.736-06:00  INFO 55716 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-08T15:16:37.837-06:00  INFO 55716 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:testdb]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TESTDB/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-08T15:16:40.590-06:00  INFO 55716 --- [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-08T15:16:40.843-06:00  INFO 55716 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-08T15:16:41.005-06:00  INFO 55716 --- [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-11-08T15:16:42.917-06:00  WARN 55716 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-08T15:16:43.588-06:00  INFO 55716 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-11-08T15:16:46.475-06:00  INFO 55716 --- [main] s.e.u.c.CoreinventoryApplicationTests    : Started CoreinventoryApplicationTests in 14.976 seconds (process running for 17.433)
+2026-11-08T15:16:47.528-06:00  WARN 55716 --- [main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-11-08T15:16:47.528-06:00  WARN 55716 --- [main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-11-08T15:16:50.813-06:00  INFO 55716 --- [main] s.e.u.c.service.NotificacionService      : Procesamiento de alertas finalizado: AlertaResumenDto[total=1, licenciasVencidas=0, licenciasPorVencer=0, equiposVulnerables=1, softwareDesactualizado=0]
+2026-11-08T15:16:50.921-06:00  INFO 55716 --- [main] s.e.u.c.service.NotificacionService      : Procesamiento de alertas finalizado: AlertaResumenDto[total=1, licenciasVencidas=0, licenciasPorVencer=1, equiposVulnerables=0, softwareDesactualizado=0]
+2026-11-08T15:16:50.977-06:00  INFO 55716 --- [main] s.e.u.c.service.NotificacionService      : Procesamiento de alertas finalizado: AlertaResumenDto[total=1, licenciasVencidas=1, licenciasPorVencer=0, equiposVulnerables=0, softwareDesactualizado=0]
+2026-11-08T15:16:51.012-06:00  INFO 55716 --- [main] s.e.u.c.service.NotificacionService      : Procesamiento de alertas finalizado: AlertaResumenDto[total=1, licenciasVencidas=1, licenciasPorVencer=0, equiposVulnerables=0, softwareDesactualizado=0]
+2026-11-08T15:16:51.068-06:00  INFO 55716 --- [main] s.e.u.c.service.NotificacionService      : Procesamiento de alertas finalizado: AlertaResumenDto[total=0, licenciasVencidas=0, licenciasPorVencer=0, equiposVulnerables=0, softwareDesactualizado=0]
+2026-11-08T15:16:51.160-06:00  INFO 55716 --- [main] s.e.u.c.service.NotificacionService      : Procesamiento de alertas finalizado: AlertaResumenDto[total=1, licenciasVencidas=0, licenciasPorVencer=0, equiposVulnerables=0, softwareDesactualizado=1]
+2026-11-08T15:16:51.254-06:00  INFO 55716 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-11-08T15:16:51.262-06:00  INFO 55716 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-11-08T15:16:51.270-06:00  INFO 55716 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
