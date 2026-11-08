@@ -49,8 +49,10 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         
-        // Permitir el origen exacto de Next.js
-        configuration.setAllowedOrigins(List.of("http://localhost:3000"));
+        // Permitir los orígenes locales de Next.js
+        configuration.setAllowedOrigins(List.of(
+                "http://localhost:3000",
+                "http://127.0.0.1:3000"));
         
         // Permitir todos los métodos HTTP estándar (incluyendo OPTIONS)
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD"));

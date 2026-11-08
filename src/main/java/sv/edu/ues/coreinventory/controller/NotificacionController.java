@@ -6,6 +6,7 @@ import org.springframework.data.web.PageableDefault;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,10 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
+import sv.edu.ues.coreinventory.dto.AlertaResumenDto;
 import sv.edu.ues.coreinventory.dto.ApiResponse;
 import sv.edu.ues.coreinventory.entity.Notificacion;
 import sv.edu.ues.coreinventory.exception.AppException;
 import sv.edu.ues.coreinventory.repository.NotificacionRepository;
+import sv.edu.ues.coreinventory.service.NotificacionService;
 
 @RestController
 @RequestMapping("/api/notificaciones")
@@ -27,6 +30,7 @@ import sv.edu.ues.coreinventory.repository.NotificacionRepository;
 public class NotificacionController {
 
     private final NotificacionRepository notificacionRepository;
+    private final NotificacionService notificacionService;
 
     @GetMapping("/")
     public ResponseEntity<ApiResponse<Page<Notificacion>>> getAll(
@@ -42,6 +46,18 @@ public class NotificacionController {
                 .orElseThrow(() -> new AppException("Notificación no encontrada con id: " + id, HttpStatus.NOT_FOUND));
 
         return ResponseEntity.ok(ApiResponse.success("Notificación obtenida con éxito", item));
+    }
+
+    /**
+     * Ejecuta manualmente el escaneo de alertas (licencias y equipos) sin
+     * esperar a la tarea programada.
+     */
+    @PostMapping("/alertas/procesar")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<ApiResponse<AlertaResumenDto>> procesarAlertas() {
+        AlertaResumenDto resumen = notificacionService.procesarAlertas();
+
+        return ResponseEntity.ok(ApiResponse.success("Alertas procesadas con éxito", resumen));
     }
 
     @PostMapping("/")

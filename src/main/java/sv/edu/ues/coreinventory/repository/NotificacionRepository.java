@@ -1,5 +1,6 @@
 package sv.edu.ues.coreinventory.repository;
 
+import java.time.OffsetDateTime;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
@@ -47,4 +48,19 @@ public interface NotificacionRepository extends JpaRepository<Notificacion, Long
             WHERE sa.id = :solicitudId
             """, nativeQuery = true)
     int crearNotificacionesPorSolicitud(@Param("solicitudId") Long solicitudId);
+
+    /**
+     * Cuenta las notificaciones equivalentes creadas para un usuario desde una
+     * fecha. Se usa para no repetir la misma alerta en cada ejecución.
+     */
+    @Query("SELECT COUNT(n) FROM Notificacion n "
+            + "WHERE n.usuario.id = :usuarioId "
+            + "AND n.tipo = :tipo "
+            + "AND n.titulo = :titulo "
+            + "AND n.fechaCreacion >= :desde")
+    long countByUsuarioAndTipoAndTituloDesde(
+            @Param("usuarioId") Long usuarioId,
+            @Param("tipo") String tipo,
+            @Param("titulo") String titulo,
+            @Param("desde") OffsetDateTime desde);
 }
