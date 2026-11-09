@@ -44,7 +44,7 @@ public interface NotificacionRepository extends JpaRepository<Notificacion, Long
             INNER JOIN software s ON s.id = es.software_id
             INNER JOIN equipo e ON es.equipo_id = e.id
             INNER JOIN usuario u ON e.responsable_id = u.id
-            WHERE sa.id = :solicitudId
+            WHERE sa.id = :solicitudId AND sa.estado NOT IN('APROBADA', 'RECHAZADA')
             """, nativeQuery = true)
     int crearNotificacionesPorSolicitud(@Param("solicitudId") Long solicitudId);
 }

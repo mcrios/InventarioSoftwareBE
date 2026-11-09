@@ -3,6 +3,8 @@ package sv.edu.ues.coreinventory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.web.config.EnableSpringDataWebSupport;
+import org.springframework.data.web.config.EnableSpringDataWebSupport.PageSerializationMode;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import lombok.RequiredArgsConstructor;
@@ -11,6 +13,7 @@ import sv.edu.ues.coreinventory.repository.UsuarioRepository;
 
 @SpringBootApplication
 @RequiredArgsConstructor 
+@EnableSpringDataWebSupport (pageSerializationMode = PageSerializationMode.VIA_DTO)
 public class CoreinventoryApplication implements CommandLineRunner {
 
 	private final UsuarioRepository userRepository; // Inyecta el servicio de usuario

@@ -27,13 +27,13 @@ public class SolicitudActualizacionService {
         item.setId(id);
         solicitudActualizacionRepository.save(item);
 
-        SolicitudActualizacion actualizada = solicitudActualizacionRepository.findById(id).orElse(item);
+        // SolicitudActualizacion actualizada = solicitudActualizacionRepository.findById(id).orElse(item);
 
         if (item.getEstado().equals("APROBADA")) {
             int creadas = notificacionRepository.crearNotificacionesPorSolicitud(id);
             log.info("Se generaron {} notificaciones para la solicitud de actualización {}", creadas, id);
         }
 
-        return actualizada;
+        return item;
     }
 }
