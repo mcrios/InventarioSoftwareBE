@@ -43,6 +43,9 @@ public class Licencia {
     @Column(name = "codigo_clave", length = 255)
     private String codigoClave;
 
+    @Column(name = "producto", length = 255)
+    private String producto;
+
     @Column(name = "archivo_url", length = 255)
     private String archivoUrl;
 
